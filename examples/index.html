@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+		  var socket = io();
+		  socket.on('noteOn', function(msg){
+		    console.log('noteOn', msg);
+		  });
+		  socket.on('noteOff', function(msg){
+		    console.log('noteOff', msg);
+		  });
+		</script>
+	</head>
+
+	<body>
+
+	</body>
+
+</html>
