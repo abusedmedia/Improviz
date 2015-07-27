@@ -1,0 +1,19 @@
+{
+	"name": "improviz",
+	"version": "0.0.1",
+	"main": "Improviz.js",
+	"description": "Time based events structure generator",
+	"author": {
+	    "name": "Fabio Franchino",
+	    "email": "ff@todo.to.it",
+	    "url": "http://www.todo.to.it/"
+	  },
+	"dependencies":{
+		"midi": "~0.9.3",
+		"nanotimer": "~0.3.1"
+	},
+	"repository": {
+	    "type": "git",
+	    "url": "https://github.com/abusedmedia/improviz.git"
+	}
+}
