@@ -6,14 +6,12 @@ Simplest example
 Import the lib, then write the pattern code straight after
 */
 
-require('./../lib/Improviz.js');
+require('./../lib/Browserified.js');
 
 // create the player and
 // we are going to use all the available interfaces
 var p = new Player();
 p.addInterface(new Console())
-p.addInterface(new Midi(1))
-p.addInterface(new WebSocket())
 p.play();
 
 var t = new Track(0);

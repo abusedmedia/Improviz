@@ -1,0 +1,55 @@
+<html>
+	<head>
+
+		<script>
+
+		// http://www.keithmcmillen.com/blog/making-music-in-the-browser-web-midi-api/
+
+		
+		  	var midi, data;
+
+
+		  	if (navigator.requestMIDIAccess) {
+			    navigator.requestMIDIAccess({
+			        sysex: false
+			    }).then(onMIDISuccess, onMIDIFailure);
+			} else {
+			    alert("No MIDI support in your browser.");
+			}
+
+			// midi functions
+			function onMIDISuccess(midiAccess) {
+			    console.log('MIDI Access Object', midiAccess);
+
+				midi = midiAccess;
+
+			    var inputs = midi.inputs.values();
+			    for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
+			        // each time there is a midi message call the onMIDIMessage function
+			        input.value.onmidimessage = onMIDIMessage;
+			    }
+			}
+
+			function onMIDIFailure(e) {
+			    console.log("No access to MIDI devices or your browser doesn't support WebMIDI API. Please use WebMIDIAPIShim " + e);
+			}
+
+			function onMIDIMessage(message) {
+			    data = message.data; // this gives us our [command/channel, note, velocity] data.
+			    if(data[0] == 144){
+			    	console.log('MIDI On', data);
+			    }
+			    if(data[0] == 128){
+			    	console.log('MIDI Off', data);
+			    }
+			}
+
+
+		</script>
+	</head>
+
+	<body>
+
+	</body>
+
+</html>

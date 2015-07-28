@@ -48,3 +48,14 @@ Here a basic example in order to generate a simple structure
 
 The playhead is already running due the command `p.play();`
 Your MIDI device should receive MIDI notes
+
+
+
+# Run the Example
+
+	cd <improviz-path>/examples/
+	node 01_basic_standard.js
+	
+Then open Chrome browser and point it to:
+
+	http://localhost:3000/clients/WebSocket.html
