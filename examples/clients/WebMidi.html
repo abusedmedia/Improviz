@@ -17,6 +17,7 @@
 			    alert("No MIDI support in your browser.");
 			}
 
+			var myPort = 'PutPort2'
 			// midi functions
 			function onMIDISuccess(midiAccess) {
 			    console.log('MIDI Access Object', midiAccess);
@@ -25,8 +26,10 @@
 
 			    var inputs = midi.inputs.values();
 			    for (var input = inputs.next(); input && !input.done; input = inputs.next()) {
-			        // each time there is a midi message call the onMIDIMessage function
-			        input.value.onmidimessage = onMIDIMessage;
+			        console.log(input.value.name, input);
+			        if(input.value.name == myPort){
+			        	input.value.onmidimessage = onMIDIMessage;
+			        }
 			    }
 			}
 
@@ -36,11 +39,12 @@
 
 			function onMIDIMessage(message) {
 			    data = message.data; // this gives us our [command/channel, note, velocity] data.
+			    console.log('MIDI On', data);
 			    if(data[0] == 144){
-			    	console.log('MIDI On', data);
+			    	//console.log('MIDI On', data);
 			    }
 			    if(data[0] == 128){
-			    	console.log('MIDI Off', data);
+			    	//console.log('MIDI Off', data);
 			    }
 			}
 

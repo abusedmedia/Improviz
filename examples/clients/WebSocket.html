@@ -14,11 +14,15 @@
 		  });
 
 		  socket.on('noteOn', function(msg){
-		    console.log('noteOn', msg);
+		    //console.log('noteOn', msg);
 		  });
 
 		  socket.on('noteOff', function(msg){
-		    console.log('noteOff', msg);
+		    //console.log('noteOff', msg);
+		  });
+
+		  socket.on('data', function(data){
+		    console.log('data', data);
 		  });
 
 		</script>
